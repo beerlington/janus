@@ -217,7 +217,7 @@ vim_plugin_task "vwilight" do
 end
 
 vim_plugin_task "tomorrow night" do
-  sh "curl https://raw.github.com/ootoovak/vim-tomorrow-night/master/colors/tomorrow-night.vim > colors/Tomorrow-Night.vim"
+  sh "curl https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim > colors/Tomorrow-Night.vim"
 end
 
 if File.exists?(janus = File.expand_path("~/.janus.rake"))
