@@ -124,6 +124,7 @@ def skip_vim_plugin(name)
   Rake::Task[:default].prerequisites.delete(name)
 end
 
+vim_plugin_task "mustache",         "git://github.com/juvenn/mustache.vim.git"
 vim_plugin_task "ack.vim",          "git://github.com/mileszs/ack.vim.git"
 vim_plugin_task "color-sampler",    "git://github.com/vim-scripts/Color-Sampler-Pack.git"
 vim_plugin_task "conque",           "http://conque.googlecode.com/files/conque_1.1.tar.gz"
@@ -141,7 +142,7 @@ vim_plugin_task "supertab",         "git://github.com/ervandew/supertab.git"
 vim_plugin_task "cucumber",         "git://github.com/tpope/vim-cucumber.git"
 vim_plugin_task "textile",          "git://github.com/timcharper/textile.vim.git"
 vim_plugin_task "rails",            "git://github.com/tpope/vim-rails.git"
-vim_plugin_task "rspec",            "git://github.com/taq/vim-rspec.git"
+vim_plugin_task "rspec",            "git://github.com/skwp/vim-rspec.git"
 vim_plugin_task "zoomwin",          "git://github.com/vim-scripts/ZoomWin.git"
 vim_plugin_task "markdown",         "git://github.com/tpope/vim-markdown.git"
 vim_plugin_task "align",            "git://github.com/tsaleh/vim-align.git"
@@ -200,12 +201,7 @@ end
 vim_plugin_task "molokai" do
   sh "curl https://github.com/mrtazz/molokai.vim/raw/master/colors/molokai.vim > colors/molokai.vim"
 end
-vim_plugin_task "mustache" do
-  sh "curl https://github.com/defunkt/mustache/raw/master/contrib/mustache.vim > syntax/mustache.vim"
-  File.open(File.expand_path('../ftdetect/mustache.vim', __FILE__), 'w') do |file|
-    file << "au BufNewFile,BufRead *.mustache        setf mustache"
-  end
-end
+
 vim_plugin_task "arduino","git://github.com/vim-scripts/Arduino-syntax-file.git" do
   File.open(File.expand_path('../ftdetect/arduino.vim', __FILE__), 'w') do |file|
     file << "au BufNewFile,BufRead *.pde             setf arduino"
