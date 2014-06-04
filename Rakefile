@@ -155,7 +155,7 @@ vim_plugin_task "syntastic",        "git://github.com/scrooloose/syntastic.git"
 vim_plugin_task "gist-vim",         "git://github.com/mattn/gist-vim.git"
 vim_plugin_task "tabular",          "git://github.com/godlygeek/tabular.git"
 vim_plugin_task "less",             "git://github.com/groenewege/vim-less.git"
-vim_plugin_task "handlebars",       "git://github.com/nono/vim-handlebars.git"
+vim_plugin_task "handlebars",       "git://github.com/mustache/vim-mustache-handlebars.git"
 
 vim_plugin_task "command_t",        "http://s3.wincent.com/command-t/releases/command-t-1.2.1.vba" do
   Dir.chdir "ruby/command-t" do
@@ -198,21 +198,14 @@ vim_plugin_task "janus_themes" do
   end
 end
 
-vim_plugin_task "molokai" do
-  sh "curl https://github.com/mrtazz/molokai.vim/raw/master/colors/molokai.vim > colors/molokai.vim"
-end
-
 vim_plugin_task "arduino","git://github.com/vim-scripts/Arduino-syntax-file.git" do
   File.open(File.expand_path('../ftdetect/arduino.vim', __FILE__), 'w') do |file|
     file << "au BufNewFile,BufRead *.pde             setf arduino"
   end
 end
-vim_plugin_task "vwilight" do
-  sh "curl https://gist.github.com/raw/796172/724c7ca237a7f6b8d857c4ac2991cfe5ffb18087/vwilight.vim > colors/vwilight.vim"
-end
 
 vim_plugin_task "tomorrow night" do
-  sh "curl https://raw.github.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim > colors/Tomorrow-Night.vim"
+  sh "curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/vim/colors/Tomorrow-Night.vim > colors/Tomorrow-Night.vim"
 end
 
 if File.exists?(janus = File.expand_path("~/.janus.rake"))
