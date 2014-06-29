@@ -136,6 +136,8 @@ vim_plugin_task "nerdtree",         "git://github.com/wycats/nerdtree.git"
 vim_plugin_task "nerdcommenter",    "git://github.com/ddollar/nerdcommenter.git"
 vim_plugin_task "surround",         "git://github.com/tpope/vim-surround.git"
 vim_plugin_task "taglist",          "git://github.com/vim-scripts/taglist.vim.git"
+vim_plugin_task "vividchalk",       "git://github.com/tpope/vim-vividchalk.git"
+vim_plugin_task "solarized",        "git://github.com/altercation/vim-colors-solarized.git"
 vim_plugin_task "supertab",         "git://github.com/ervandew/supertab.git"
 vim_plugin_task "cucumber",         "git://github.com/tpope/vim-cucumber.git"
 vim_plugin_task "textile",          "git://github.com/timcharper/textile.vim.git"
@@ -167,6 +169,40 @@ vim_plugin_task "command_t",        "http://s3.wincent.com/command-t/releases/co
       sh "rvm system ruby extconf.rb"
     end
     sh "make clean && make"
+  end
+end
+
+vim_plugin_task "janus_themes" do
+  # custom version of railscasts theme
+  File.open(File.expand_path("../colors/railscasts+.vim", __FILE__), "w") do |file|
+    file.puts <<-VIM.gsub(/^ +/, "").gsub("<SP>", " ")
+      runtime colors/railscasts.vim
+      let g:colors_name = "railscasts+"
+
+      set fillchars=vert:\\<SP>
+      set fillchars=stl:\\<SP>
+      set fillchars=stlnc:\\<SP>
+      hi  StatusLine guibg=#cccccc guifg=#000000
+      hi  VertSplit  guibg=#dddddd
+    VIM
+  end
+
+  # custom version of jellybeans theme
+  File.open(File.expand_path("../colors/jellybeans+.vim", __FILE__), "w") do |file|
+    file.puts <<-VIM.gsub(/^      /, "")
+      runtime colors/jellybeans.vim
+      let g:colors_name = "jellybeans+"
+
+      hi  VertSplit    guibg=#888888
+      hi  StatusLine   guibg=#cccccc guifg=#000000
+      hi  StatusLineNC guibg=#888888 guifg=#000000
+    VIM
+  end
+end
+
+vim_plugin_task "arduino","git://github.com/vim-scripts/Arduino-syntax-file.git" do
+  File.open(File.expand_path('../ftdetect/arduino.vim', __FILE__), 'w') do |file|
+    file << "au BufNewFile,BufRead *.pde             setf arduino"
   end
 end
 
