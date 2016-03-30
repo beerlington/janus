@@ -158,7 +158,7 @@ vim_plugin_task "less",             "git://github.com/genoma/vim-less.git"
 vim_plugin_task "handlebars",       "git://github.com/mustache/vim-mustache-handlebars.git"
 vim_plugin_task "ragtag",           "git://github.com/tpope/vim-ragtag.git"
 vim_plugin_task "html5",            "git://github.com/othree/html5.vim.git"
-vim_plugin_task "elixir",            "git://github.com/elixir-lang/vim-elixir.git"
+vim_plugin_task "elixir",           "git://github.com/elixir-lang/vim-elixir.git"
 
 vim_plugin_task "command_t",        "http://s3.wincent.com/command-t/releases/command-t-1.2.1.vba" do
   Dir.chdir "ruby/command-t" do
